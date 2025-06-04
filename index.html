@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🍱 AI Craving Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OG for Social Sharing -->
+  <meta property="og:title" content="This AI Guessed My Favorite Food – Try It!">
+  <meta property="og:description" content="Only 1% guessed correctly. Reveal yours now.">
+  <meta property="og:image" content="https://yourdomain.com/images/preview1.jpg">
+  <meta property="og:url" content="https://yourdomain.com/index.html">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    body {
+      background: radial-gradient(circle, #111 0%, #000 100%);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 2rem;
+      margin: 0;
+    }
+    .box {
+      background: rgba(34, 34, 34, 0.95);
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 480px;
+      margin: auto;
+      box-shadow: 0 0 25px rgba(255, 87, 34, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .teaser {
+      width: 100%;
+      border-radius: 12px;
+      filter: blur(6px);
+      transition: filter 2s ease;
+    }
+    .teaser.clear {
+      filter: blur(0);
+    }
+    .btn {
+      background: linear-gradient(135deg, #ff5722, #ff9800);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #ff5722;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    #process {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #ffcc80;
+      display: none;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    #foodName {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-top: 1.2rem;
+      display: none;
+      color: #ffab40;
+    }
+    #shareBtn {
+      margin-top: 2rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🤖 AI Craves Detector</h1>
+    <img id="foodImg" src="" alt="AI Food" class="teaser">
+    <p id="description">Only 1% guessed it right. Think you're special?</p>
+    <div id="foodName"></div>
+    <button class="btn" onclick="startReveal()">🔍 Reveal What AI Thinks!</button>
+    <div id="process">🔬 Analyzing your brain cravings...</div>
+    <div id="shareBtn">
+      <a id="fbShare" class="btn" target="_blank">📣 Share Yours on Facebook</a>
+    </div>
+  </div>
+
+  <script>
+    const foods = [
+      {
+        name: "100+ Easy Chicken Dinner Recipes",
+        img: "http://del.h-cdn.co/assets/17/26/1498851545-shot-1-61.jpg"
+      },
+      {
+        name: "Creamy Mexican Street Corn Soup",
+        img: "https://patriciauniverse.com/wp-content/uploads/2025/05/1400.jpg"
+      },
+      {
+        name: "Summer Finger Food Recipes",
+        img: "https://www.eatwell101.com/wp-content/uploads/2014/07/finger-food-recipes.jpg"
+      },
+      {
+        name: "Broccoli & Garlic Pasta for One",
+        img: "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_744,ar_5:4/v1/img/recipes/12/71/3/piculOZwK.jpg"
+      }
+    ];
+
+    const img = document.getElementById('foodImg');
+    const nameBox = document.getElementById('foodName');
+    const fbBtn = document.getElementById('fbShare');
+    const shareDiv = document.getElementById('shareBtn');
+    const random = Math.floor(Math.random() * foods.length);
+    const selected = foods[random];
+    img.src = selected.img;
+
+    function startReveal() {
+      document.getElementById('process').style.display = "block";
+      document.getElementById('description').style.display = "none";
+      img.classList.add("clear");
+
+      setTimeout(() => {
+        nameBox.innerText = `🍽️ It's ${selected.name}!`;
+        nameBox.style.display = "block";
+        shareDiv.style.display = "block";
+
+        // Viral Facebook share button
+        const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=https://stock.adobe.com/lk/contributor/212431646/Dev%20Navod%20Himsara&quote=AI says I crave ${encodeURIComponent(selected.name)} 🤯🔥. Try it & share yours now!`;
+        fbBtn.href = shareUrl;
+
+        // Adsterra redirect
+        window.open("https://www.profitableratecpm.com/eh0r16wt5?key=fc83cf042310714fdeebfd784b9fc1c7", "_blank");
+      }, 2500);
+
+      // Adobe Stock Profile redirect after delay
+      setTimeout(() => {
+        window.location.href = "https://stock.adobe.com/lk/contributor/212431646/Dev%20Navod%20Himsara";
+      }, 20000);
+    }
+  </script>
+</body>
+</html>
